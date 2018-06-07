@@ -44,7 +44,7 @@
 								<span class="image">
 									<img src="images/blumenau/blumenau1.jpg" alt="" />
 								</span>
-								<a href="blu1.html">
+								<a href="blu1.php">
 									<h2>Blumenau - SC</h2>
 									<div class="content">
 										<p>Câmeras públicas da cidade de Blumenau</p>
@@ -55,7 +55,7 @@
 								<span class="image">
 									<img src="images/balneario/balneario1.jpg" alt="" />
 								</span>
-								<a href="baln1.html">
+								<a href="baln1.php">
 									<h2>Balneário Camboriú - SC</h2>
 									<div class="content">
 										<p>Cânmeras da cidade de Balneário Camboriú - SC</p>
