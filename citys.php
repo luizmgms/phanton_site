@@ -33,6 +33,7 @@
 
 				<!-- Main -->
 				<div id="main">
+					<!--Ancora-->
 					<a name="anc_citys"></a>
 					<div class="inner">
 						<header>
@@ -55,7 +56,7 @@
 								<span class="image">
 									<img src="images/balneario/balneario1.jpg" alt="" />
 								</span>
-								<a href="baln1.php">
+								<a href="<?php echo BASEURL; ?>citys/baln1.php">
 									<h2>Balneário Camboriú - SC</h2>
 									<div class="content">
 										<p>Cânmeras da cidade de Balneário Camboriú - SC</p>
@@ -66,7 +67,7 @@
 						</section>
 
 						<!-- Botão Voltar-->								
-						<input id="btn_v_all" type="button" value="Voltar" onclick="window.location.href='index.html'">
+						<input id="btn_v_all" type="button" value="Voltar" onclick="window.location.href='home.php'">
 						
 					</div>
 				</div>

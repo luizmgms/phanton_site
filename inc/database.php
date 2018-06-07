@@ -80,11 +80,15 @@
     }
 
     /* Pesquisa todas as câmeras públicas */
-    function find_cams_public(){
+    function find_cams_public($city = null){
         $db = open_database();
         $camsPublic = null;
         try {
-            $sql = "SELECT * FROM cams WHERE publicCam = 1 ORDER BY cityCam";
+            if($city == null) {
+                $sql = "SELECT * FROM cams WHERE publicCam = 1 ORDER BY cityCam";
+            } else {
+                $sql = "SELECT * FROM cams WHERE cityCam = "."'$city'"."AND publicCam = 1";
+            }
             $result = $db->query($sql);
             if($result->num_rows > 0) {
                 $camsPublic = $result->fetch_all(MYSQLI_ASSOC);
@@ -134,5 +138,23 @@
         }
         close_database($db);
         return false;
+    }
+
+    /* Procura uma câmera por id */
+    function findCamById($idCam = null) {
+        $db = open_database();
+        $found = null;
+        try {
+            $sql = "SELECT * FROM cams WHERE idCam = $idCam";
+            $result = $db->query($sql);            
+            if ($result->num_rows > 0) {   
+                $found = $result->fetch_assoc();
+            }            
+        } catch (Exception $e) {
+            $_SESSION['message'] = $e->GetMessage();
+            $_SESSION['type'] = 'danger';
+        }
+        close_database($db);
+        return $found;
     }
 ?>

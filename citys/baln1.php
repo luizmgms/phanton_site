@@ -9,10 +9,11 @@
 	
 	$logado = $_SESSION['login'];
 	$nome = $_SESSION['name'];
+	
+	require_once('functions.php');
+	
+	camsPubCity("Balneario Camboriu - SC");
 ?>
-
-<?php require_once 'config.php'; ?>
-<?php require_once DBAPI; ?>
 
 <!DOCTYPE HTML>
 <!--
@@ -39,7 +40,7 @@
 					<h1>Balneário Camboriú - SC</h1>
 					
 					<!-- Imagem da Cidade -->
-					<span class="image main"><img src="images/balneario/bal_banner.jpg" alt="" /></span>
+					<span class="image main"><img src="<?php echo BASEURL?>images/balneario/bal_banner.jpg" alt="" /></span>
 					
 					<!-- Descrição da Cidade -->
 					<p>
@@ -70,24 +71,26 @@
 					<h2>Câmeras de Balneário Camboriú</h2>
 					
 					<section class="tiles">
-							
-						<!--Câmera Av. Antônio Veiga-->
-						<article class="style1">
-							<span class="image">
-								<img src="images/balneario/av_brasil.jpg" alt="" />
-							</span>
-							<a href="bal_av_brasil.html">
-								<h2>Avenida Brasil</h2>
-								<div class="content">
-									<p>Câmera sobre a Avenida Brasil</p>
-								</div>
-							</a>
-						</article>
-																	
+						<?php $i=1; ?>							
+						<?php foreach($camsPublic as $value): ?>									
+							<article class="style<?php echo $i; ?>">
+								<span class="image">
+									<img src="<?php echo BASEURL;?>images/pic<?php echo $i; ?>.jpg" alt="" />
+								</span>
+								<a href="<?php echo BASEURL; ?>citys/view_cam.php?idcam=<?php echo $value['idCam']; ?>">
+									<h2><?php echo $value['nameCam']; ?></h2>
+									<div class="content">
+										<p><?php echo $value['descCam']; ?></p>
+									</div>
+								</a>
+							</article>
+							<?php $i++;?>
+						<?php endforeach?>											
 					</section>
 					
 					<!-- Botão Voltar-->								
-					<input id="btn_v_all" type="button" value="Voltar" onclick="window.location.href='home.php'">
+					<input id="btn_v_all" type="button" value="Voltar"
+					onclick="window.location.href='<?php echo BASEURL; ?>citys.php#anc_citys'">
 
 				</div>
 						
