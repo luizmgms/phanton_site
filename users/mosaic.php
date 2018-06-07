@@ -79,10 +79,8 @@
 											</form>											
 										</td>
 										<td>
-											<form action="#">
-												<input type="hidden" name="url_cam" value="<?php echo $cam['idCam']; ?>">
-												<input type="submit" value="Excluir"/>
-											</form>
+											<button onclick="return rmCamUser(<?php echo $cam['idCam']; ?>)">
+											Excluir</button>
 										</td>
                                     </tr>
                                 <?php endforeach?>
@@ -98,12 +96,18 @@
 					<div style="width: 100%; height: 70px; padding-left: 84%;">
 						<button id="btnAddCam" class="button" onclick="verAllCams()">Ver Todas</a>
 					</div>
+
 					<script>
 						function verAllCams() {
 							$("#my_mosaic").hide();
 							if(document.getElementById("frm_ind") != null){
 								$("#frm_ind").remove();
 							}
+							var list = document.getElementById("my_mosaic");							
+							while (list.hasChildNodes()) {   
+								list.removeChild(list.firstChild);
+							}
+							
 							<?php
 								foreach ($camsUser as $key => $value) {
 									$p1 = 'document.getElementById("my_mosaic").innerHTML += ';
@@ -146,39 +150,71 @@
 								if(cam == ""){
 									alert("Escolha uma Câmera!");
 								}else{
-								$.post('addcamuser.php', {
-									user: user,
-									cam: cam
-								}, function(data) {
-									if(data) {
-										alert("Câmera inserida com sucesso!");
-									} else {
-										alert("Infelizmente não se pode inserir está câmera. "+
-										"Talvez ela já esteja inserida neste Usuário");
-									}
-									location.reload(true);
-									} 
-								)}
+									$.post(
+										'addcamuser.php',
+										{
+											user: user,
+											cam: cam
+										},
+										function(data) {
+											if(data) {
+												alert("Câmera inserida com sucesso!");
+											} else {
+												alert("Infelizmente não se pode inserir está câmera. "+
+												"Talvez ela já esteja inserida neste Usuário");
+											}
+											location.reload(true);
+										} 
+									)
+								}
 							}
+
+							function rmCamUser(cam_a_ex) {
+								rtn = confirm("Tem certeza disso?");
+									if(rtn) {
+									user = <?php echo $idUser; ?>;
+									$.post(
+										'rmcamuser.php',
+										{
+											user: user,
+											cam: cam_a_ex
+										},
+										function(data){
+											if(data){
+												alert("Câmera foi excluída com sucesso!");
+											} else {
+												alert("Algo deu errado :(");
+											}
+											location.reload(true);
+										}
+
+									)
+								}
+							}
+
 						</script>						
 					</div>
-				</div>
-				
-				<!--Ancora-->
-				<a name="view_cam"></a>
-				<div style="width: 100%; height: 20px"></div>
-				
-				<!-- Ver Camera Aqui -->
-				<?php if(!empty($_POST)) : ?>
-					<div id="my_mosaic">
-						<iframe id="frm_ind" width="720" height="407" frameborder="0"
-						src=<?php echo $_POST['url_cam']; ?> allowfullscreen></iframe>
-						<p><?php echo $_POST['ct_cam'];?> - <?php echo $_POST['name_cam']; ?> <p>
-					</div>
-				<?php else: ?>
-					<div id="my_mosaic"></div>	
-				<?php endif; ?>
 							
+					<!--Ancora-->
+					<a name="view_cam"></a>
+					<div style="width: 100%; height: 20px"></div>
+					
+					<!-- Ver Camera Aqui -->
+					<?php if(!empty($_POST)) : ?>
+						<div id="my_mosaic">
+							<iframe id="frm_ind" width="720" height="407" frameborder="0"
+							src=<?php echo $_POST['url_cam']; ?> allowfullscreen></iframe>
+							<p><?php echo $_POST['ct_cam'];?> - <?php echo $_POST['name_cam']; ?> <p>
+						</div>
+					<?php else: ?>
+						<div id="my_mosaic"></div>	
+					<?php endif; ?>
+					
+					<!-- Botão Voltar-->								
+					<input id="btn_v_all" type="button" value="Voltar"
+					onclick="window.location.href='<?php echo BASEURL; ?>home.php'">
+					
+				</div>			
 
 			</div>
 

@@ -104,6 +104,7 @@
             $sql = "SELECT * FROM user_cam WHERE idUser = $idUser AND idCam = $idCam";
             $result = $db->query($sql);
             if($result->num_rows >0){
+                close_database($db);
                 return false;
             } else {
                 $sql = "INSERT INTO user_cam(idUser, idCam) VALUES ($idUser, $idCam)";
@@ -115,5 +116,23 @@
         }
         close_database($db);
         return true;
+    }
+
+    /* Remove Câmera de um usuário */
+    function rmCamOfUser($idUser = null, $idCam = null) {
+        $db = open_database();
+        try {
+            $sql = "DELETE FROM user_cam WHERE idUser = $idUser AND idCam = $idCam";
+            $result = $db->query($sql);
+            if($result > 0){
+                close_database($db);
+                return true;
+            }
+        } catch (Exception $e) {
+            $_SESSION['message'] = $e->GetMessage();
+            $_SESSION['type'] = 'danger';
+        }
+        close_database($db);
+        return false;
     }
 ?>
