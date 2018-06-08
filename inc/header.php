@@ -2,7 +2,7 @@
     <div class="inner">
 
         <!-- Logo -->
-        <a href="home.php" class="logo">
+        <a href="<?php echo BASEURL; ?>home.php" class="logo">
             <span class="symbol">
                 <img src="<?php echo BASEURL; ?>images/logo.png" alt="" />
             </span>
@@ -24,7 +24,7 @@
     <h2>Menu</h2>
     <ul>
         <li><a href="<?php echo BASEURL; ?>home.php">Home</a></li>
-        <li><a href="<?php echo BASEURL; ?>camera_person.php">Usuários</a></li>
+        <li><a href="<?php echo BASEURL; ?>users/cams_person.php?iduser=<?php echo $_SESSION['id']; ?>">Câmeras Pessoais</a></li>
         <li><a href="<?php echo BASEURL; ?>citys.php">Cidades</a></li>
         <li><a href="<?php echo BASEURL; ?>users/mosaic.php">Minhas Câmeras</a></li>
         <li><a href="<?php echo BASEURL; ?>index.php">Logout</a></li>

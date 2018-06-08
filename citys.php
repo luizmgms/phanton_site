@@ -41,25 +41,25 @@
 							<p>Algumas Câmeras públicas de algumas cidades do Brasil.</p>
 						</header>
 						<section class="tiles">
-							<article class="style1">
+							<article class="style4">
 								<span class="image">
 									<img src="images/blumenau/blumenau1.jpg" alt="" />
 								</span>
-								<a href="blu1.php">
+								<a href="<?php echo BASEURL?>citys/blu1.php">
 									<h2>Blumenau - SC</h2>
 									<div class="content">
-										<p>Câmeras públicas da cidade de Blumenau</p>
+										<p>Câmeras públicas da cidade de Blumenau - SC</p>
 									</div>
 								</a>
 							</article>
-							<article class="style2">
+							<article class="style5">
 								<span class="image">
 									<img src="images/balneario/balneario1.jpg" alt="" />
 								</span>
 								<a href="<?php echo BASEURL; ?>citys/baln1.php">
 									<h2>Balneário Camboriú - SC</h2>
 									<div class="content">
-										<p>Cânmeras da cidade de Balneário Camboriú - SC</p>
+										<p>Câmeras da cidade de Balneário Camboriú - SC</p>
 									</div>
 								</a>
 							</article>

@@ -10,7 +10,7 @@
 	
 	$logado = $_SESSION['login'];
     $nome = $_SESSION['name'];
-    findCam($_GET['idcam']);
+    camsPubCity($_GET['city']);
 	
 ?>
 
@@ -35,18 +35,16 @@
             <div id="main">
                 <div class="inner">
 
-                    <h1><?php echo $camView['nameCam']; ?> - <?php echo $camView['cityCam']; ?></h1>
+                    <h1>Cidade</h1>
                     
-                    <!-- Frame Câmera -->
-                    <div class="c_iframe">
-                        <img class="ratio" src="http://placehold.it/16x9"/>							
-                        <iframe frameborder="0" src="<?php echo $camView['urlCam']; ?>" allowfullscreen></iframe>
-                    </div>
-                                        
-                    <h2>Localização da Câmera</h2>
-                    
-                    <!-- Frame Localização da Câmera -->
-                    <iframe src="<?php echo $camView['mapCam']; ?>" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <?php foreach($camsPublic as $value): ?>  
+                        <!-- Frame Câmera -->
+                        <p><?php echo $value['nameCam']; ?></p>
+                        <div class="c_iframe">
+                            <img class="ratio" src="http://placehold.it/16x9"/>							
+                            <iframe frameborder="0" src="<?php echo $value['urlCam']; ?>" allowfullscreen></iframe>
+                        </div>                        
+                    <?php endforeach?>
 
                     <!-- Botão Voltar-->								
                     <input id="btn_v_all" type="button" value="Voltar" onclick="javascript:history.back()">

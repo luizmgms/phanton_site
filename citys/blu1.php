@@ -9,10 +9,9 @@
 	
 	$logado = $_SESSION['login'];
 	$nome = $_SESSION['name'];
+	require_once('functions.php');
+	camsPubCity("Blumenau - SC");
 ?>
-
-<?php require_once 'config.php'; ?>
-<?php require_once DBAPI; ?>
 
 <!DOCTYPE HTML>
 <!--
@@ -39,7 +38,7 @@
 					<h1>Blumenau - SC</h1>
 					
 					<!-- Imagem da Cidade -->
-					<span class="image main"><img src="images/blumenau/blu_banner.jpg" alt="" /></span>
+					<span class="image main"><img src="<?php echo BASEURL?>images/blumenau/blu_banner.jpg" alt="" /></span>
 				
 					<!-- Descrição da Cidade -->
 					<p>
@@ -74,52 +73,27 @@
 					<a name="cams_blum"></a>
 
 					<section class="tiles">
-							
-						<!--Câmera Av. Antônio Veiga-->
-						<article class="style1">
-							<span class="image">
-								<img src="images/blumenau/blumenau_SC_Antonio_veiga.jpg" alt="" />
-							</span>
-							<a href="blu_av_av.html">
-								<h2>Av. Antônio Veiga</h2>
-								<div class="content">
-									<p>Av. Antônio Veiga</p>
-								</div>
-							</a>
-						</article>
-							
-						<!--Câmera Beira Rio Ponte Gov. Adolf Konder-->
-						<article class="style2">
+						<?php $i=1; ?>							
+						<?php foreach($camsPublic as $value): ?>									
+							<article class="style<?php echo $i; ?>">
 								<span class="image">
-									<img src="images/blumenau/blumenau_SC_B_Rio_P_G_Adolf_Konder.jpg" alt="" />
+									<img src="<?php echo BASEURL;?>images/pic<?php echo $i; ?>.jpg" alt="" />
 								</span>
-								<a href="blu_br_pgak.html">
-									<h2>Beira Rio Ponte Gov. Adolf Konder</h2>
+								<a href="<?php echo BASEURL; ?>citys/view_cam.php?idcam=<?php echo $value['idCam']; ?>">
+									<h2><?php echo $value['nameCam']; ?></h2>
 									<div class="content">
-										<p>Beira Rio Ponte Gov. Adolf Konder</p>
+										<p><?php echo $value['descCam']; ?></p>
 									</div>
 								</a>
-						</article>
-
-						<!--Câmera Catedral São Paulo Apóstolo-->
-						<article class="style3">
-							<span class="image">
-								<img src="images/blumenau/blumenau_cat_S_Paulo.jpg" alt="" />
-							</span>
-							<a href="blu_cat_S_Paulo.html">
-								<h2>Catedral São Paulo Apóstolo</h2>
-								<div class="content">
-									<p>Câmera da Catedral São Paulo Apóstolo</p>
-								</div>
-							</a>
-						</article>
-
+							</article>
+							<?php $i++;?>
+						<?php endforeach?>
 					</section>
 					
 					<!-- Botão ver todas cameras-->								
-					<input id="btn_v_all" type="button" value="Ver Todas" onclick="window.location.href='v_all_cams_blu.html'">
+					<input id="btn_v_all" type="button" value="Ver Todas" onclick="window.location.href='<?php echo BASEURL; ?>citys/view_all_cams.php?city=Blumenau\ -\ SC'">
 					<!-- Botão Voltar-->								
-					<input id="btn_v_all" type="button" value="Voltar" onclick="window.location.href='citys.php#anc_citys'">								
+					<input id="btn_v_all" type="button" value="Voltar" onclick="window.location.href='<?php echo BASEURL; ?>citys.php#anc_citys'">								
 			
 				</div>
 						

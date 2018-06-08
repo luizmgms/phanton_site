@@ -5,14 +5,13 @@
 		unset($_SESSION['login']);
 		unset($_SESSION['name']);
 		header('Location:index.php');
-		}
-	
+	}
+	require_once 'config.php';
+	require_once DBAPI;
 	$logado = $_SESSION['login'];
 	$nome = $_SESSION['name'];
+	$id = $_SESSION['id'];
 ?>
-
-<?php require_once 'config.php'; ?>
-<?php require_once DBAPI; ?>
 
 <!DOCTYPE HTML>
 <!--
@@ -66,10 +65,10 @@
 						<span class="image">
 							<img src="images/camera.JPG" alt="" />
 						</span>
-						<a href="camera_person.php">
+						<a href="<?php echo BASEURL; ?>users/cams_person.php?iduser=<?php echo $id; ?>">
 							<h2>Câmeras Pessoais</h2>
 							<div class="content">
-								<p>Câmeras Pessoais de alguns computadores pessoais.</p>
+								<p>Suas Câmeras Pessoais.</p>
 							</div>
 						</a>
 					</article>
