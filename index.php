@@ -66,7 +66,7 @@
                             </div>
                         </form>
 
-                        <b>Faça parte! <a href="formCadUser.php">Cadastre-se!</a></b>
+                        <b>Faça parte! <a href="<?php echo BASEURL?>users/formCadUser.php">Cadastre-se!</a></b>
                         <p><a href="resetsenha.php">Esqueci a senha :(</a></p>
                         
                     </section>

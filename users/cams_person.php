@@ -32,7 +32,7 @@
 
 				<!-- Main -->
 				<div id="main">
-					<a name="anc_citys"></a>
+					<a name="anc_pess"></a>
 					<div class="inner">
 						<header>
 							<h1>Câmeras Pessoais</h1>
@@ -60,7 +60,18 @@
 							<?php if($i == 1): ?>
 								<p>Parece que não há Câmeras Pessoais aqui :(</p>
 							<?php endif ?>
-						
+							<!--Botão Adicionar Câmera-->
+							<article class="style<?php echo $i; ?>">
+								<span class="image">
+									<img src="<?php echo BASEURL;?>images/pic<?php echo $i; ?>.jpg" alt="" />
+								</span>
+								<a href="<?php echo BASEURL; ?>cam/formAddCamUser.php">
+											<h2>+ Adicionar Câmera</h2>
+											<div class="content">
+												<p>Adicione uma Nova Câmera Pessoal</p>
+											</div>
+										</a>
+							</article>
 						</section>
 
 						<!-- Botão Voltar-->								
