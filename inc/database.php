@@ -157,4 +157,25 @@
         close_database($db);
         return $found;
     }
+
+    /* Cadastra novo usuário no banco */
+    function cad_new_user($name = null, $login = null, $email = null, $pass = null, $admin = null) {
+        $db = open_database();
+        try {
+            $sql = "SELECT * FROM users WHERE loginUser = "."'$login'";
+            $result = $db->query($sql);
+            if($result->num_rows >0){
+                close_database($db);
+                return false;
+            } else {
+                $sql = "INSERT INTO users(loginUser, passUser, nameUser, emailUser, adminUser) VALUES ("."'$login', '$pass', '$name', '$email'".", $admin)";
+                $db->query($sql);
+            }
+        } catch (Exception $e) {
+            $_SESSION['message'] = $e->GetMessage();
+            $_SESSION['type'] = 'danger';
+        }
+        close_database($db);
+        return true;
+    }
 ?>

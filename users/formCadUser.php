@@ -31,7 +31,7 @@
                 <div class="inner">
 
                     <!-- Logo -->
-                    <a href="home.php" class="logo">
+                    <a href="<?php echo BASEURL; ?>index.php" class="logo">
                         <span class="symbol">
                             <img src="<?php echo BASEURL; ?>images/logo.png" alt="" />
                         </span>
@@ -49,19 +49,28 @@
                     <!-- Form -->
                     <section>
                         
-                        <form method="post" action="<?php echo BASEURL; ?>cadUser.php">
+                        <form method="post" action="<?php echo BASEURL; ?>users/CadUser.php">
                             <div class="row uniform">
                                 <div class="12u$">
-                                    <input type="text" name="name" id="name" value="" placeholder="Digite o Nome do Usuário" />
-                                    <input type="text" name="login" id="login" value="" placeholder="Digite um Login para o Usuário" />
-                                    <input type="text" name="email" id="email" value="" placeholder="Digite o E-mail do Usuário" />
-                                    <input type="password" name="passwd" id="passwd" value="" placeholder="Digite uma Senha para  Usuário"/>
-                                    <input type="hidden" name="adm" id="adm" value="0"/>
+                                    <input type="text" name="nameNew" id="nameNew" value="" placeholder="Digite o Nome do Usuário" />
+                                </div>    
+                                <div class="12u$">
+                                    <input type="text" name="loginNew" id="loginNew" value="" placeholder="Digite um Login para o Usuário" />
+                                </div>    
+                                <div class="12u$">    
+                                    <input type="text" name="emailNew" id="emailNew" value="" placeholder="Digite o E-mail do Usuário" />
+                                </div>    
+                                <div class="12u$">    
+                                    <input type="password" name="passwdNew" id="passwdNew" value="" placeholder="Digite uma Senha para  Usuário"/>
+                                </div>    
+                                <div class="12u$">
+                                    <input type="hidden" name="admNew" id="admNew" value="0"/>
                                 </div>
                                 <div class="12u$">
                                     <ul class="actions">
                                         <li><input type="submit" value="Cadastrar" class="special" /></li>
                                         <li><input type="reset" value="Limpar" /></li>
+                                        <li><input type="button" onclick="javascript:history.back()" value="Cancelar"></li>
                                     </ul>
                                 </div>
                             </div>

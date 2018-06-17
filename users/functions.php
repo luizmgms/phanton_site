@@ -28,4 +28,9 @@
         $camsPublic = find_cams_public();
     }
 
+    /* Cadastrar Usuário */
+    function addUser($name = null, $login = null, $email = null, $pass = null, $admin = null){
+        return cad_new_user($name, $login, $email, $pass, $admin);
+    }
+
 ?>
