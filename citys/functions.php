@@ -2,7 +2,7 @@
     require_once('../config.php');
     require_once(DBAPI);
     
-    $camsPubCity = null; $camView = null;
+    $camsPubCity = null; $camView = null; $citys = null;
     
     /* Listagem de Câmeras Públicas de uma Cidade*/
     function camsPubCity($city = null){
@@ -16,5 +16,10 @@
         $camView = findCamById($idCam);
     }
 
+    /* Listagem de cidades com Câmeras públicas*/
+    function citys() {
+        global $citys;
+        $citys = find_citys();
+    }
 
 ?>

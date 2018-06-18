@@ -8,7 +8,8 @@
 		}
 	
 	$logado = $_SESSION['login'];
-	$nome = $_SESSION['name'];
+    $nome = $_SESSION['name'];
+    $idUser = $_SESSION['id'];
 ?>
 
 <?php require_once '../config.php'; ?>
@@ -30,20 +31,7 @@
         <div id="wrapper">
 
             <!--Header-->
-            <header id="header">
-                <div class="inner">
-
-                    <!-- Logo -->
-                    <a href="home.php" class="logo">
-                        <span class="symbol">
-                            <img src="<?php echo BASEURL; ?>images/logo.png" alt="" />
-                        </span>
-                        <span class="title">WCS - Beta - Bem Vindo!</span>
-                    </a>
-
-                </div>
-            </header>
-            <!--endHeader-->
+		    <?php include(HEADER_TEMPLATE); ?>
 
             <!-- Main -->
             <div id="main">
@@ -52,23 +40,29 @@
                     <!-- Form -->
                     <section>
                         
-                        <form method="post" action="<?php echo BASEURL; ?>addCamUser.php">
+                        <form method="post" action="<?php echo BASEURL; ?>cam/addCam.php">
                             <div class="row uniform">
                                 <div class="12u$">
-                                    <input type="text" name="name" id="name" value="" placeholder="Digite o Nome da Câmera" />
+                                    <input type="text" name="nameNewCam" id="nameNewCam" value="" placeholder="Digite o Nome da Câmera" />
                                 </div>
                                 <div class="12u$">    
-                                    <input type="text" name="cidade" id="cidade" value="" placeholder="Digite a Cidade onde a câmera está Localizada" />
+                                    <input type="text" name="cityNewCam" id="cityNewCam" value="" placeholder="Digite a Cidade onde a câmera está Localizada" />
                                 </div>
                                 <div class="12u$"> 
-                                    <input type="text" name="desc" id="desc" value="" placeholder="Digite uma pequena descrição sobre a câmera" />
+                                    <input type="text" name="descNewCam" id="descNewCam" value="" placeholder="Digite uma pequena descrição sobre a câmera" />
                                 </div>
                                 <div class="12u$">    
-                                    <input type="text" name="url" id="url" value="" placeholder="(Opcional) Cole aqui a url do Google Maps com a Localização da câmera"/>
+                                    <input type="text" name="urlNew" id="urlNew" value="" placeholder="Cole aqui a url de streaming da câmera"/>
+                                </div>
+                                <div class="12u$">    
+                                    <input type="text" name="mapNewCam" id="mapNewCam" value="" placeholder="(Opcional) Cole aqui a url do Google Maps com a Localização da câmera"/>
+                                </div>
+                                <div class="12u$">    
+                                    <input type="hidden" name="idUser" id="isUser" value="<?php echo $idUser; ?>"/>
                                 </div>    
                                 <div class="6u 12u$(small)">
-                                    <input type="checkbox" id="public" name="public">
-                                    <label for="public">Câmera Pública</label>
+                                    <input type="checkbox" id="publicNewCam" name="publicNewCam">
+                                    <label for="publicNewCam">Câmera Pública</label>
                                 </div>
 
                                 </div>

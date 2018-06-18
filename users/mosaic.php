@@ -86,7 +86,7 @@
                                 <?php endforeach?>
                             <?php else: ?>
                                 <tr>
-                                    <td>Nenhuma Câmera :(</td>
+                                    <td colspan="7">Nenhuma Câmera :( Tente adicionar alguma no menu Drop-Down abaixo!</td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>

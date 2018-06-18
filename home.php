@@ -4,7 +4,8 @@
 	{
 		unset($_SESSION['login']);
 		unset($_SESSION['name']);
-		header('Location:index.php');
+		$url = BASEURL."index.php";
+		header("Location:$url");
 	}
 	require_once 'config.php';
 	require_once DBAPI;
@@ -50,9 +51,9 @@
 					<!--Categoria Cidades-->
 					<article class="style1">
 						<span class="image">
-							<img src="images/cidade.jpg" alt="" />
+							<img src="<?php echo BASEURL; ?>images/cidade.jpg" alt="" />
 						</span>
-						<a href="citys.php">
+						<a href="<?php echo BASEURL; ?>citys/citys.php">
 							<h2>Cidades</h2>
 							<div class="content">
 								<p>Câmeras de diversas cidades</p>
@@ -63,7 +64,7 @@
 					<!--Categoria Câmeras Pessoais-->
 					<article class="style2">
 						<span class="image">
-							<img src="images/camera.JPG" alt="" />
+							<img src="<?php echo BASEURL; ?>images/camera.JPG" alt="" />
 						</span>
 						<a href="<?php echo BASEURL; ?>users/cams_person.php?iduser=<?php echo $id; ?>">
 							<h2>Câmeras Pessoais</h2>
@@ -76,9 +77,9 @@
 					<!--Categoria Minhas Câmeras-->
 					<article class="style3">
 						<span class="image">
-							<img src="images/my_cams.jpg" alt="" />
+							<img src="<?php echo BASEURL; ?>images/my_cams.jpg" alt="" />
 						</span>
-						<a href="users/mosaic.php">
+						<a href="<?php echo BASEURL; ?>users/mosaic.php">
 							<h2>Minhas Câmeras</h2>
 							<div class="content">
 								<p>Escolha as câmeras que quer visualizar em um mesmo painel.</p>

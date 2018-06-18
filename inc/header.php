@@ -25,7 +25,7 @@
     <ul>
         <li><a href="<?php echo BASEURL; ?>home.php">Home</a></li>
         <li><a href="<?php echo BASEURL; ?>users/cams_person.php?iduser=<?php echo $_SESSION['id']; ?>">Câmeras Pessoais</a></li>
-        <li><a href="<?php echo BASEURL; ?>citys.php">Cidades</a></li>
+        <li><a href="<?php echo BASEURL; ?>citys/citys.php">Cidades</a></li>
         <li><a href="<?php echo BASEURL; ?>users/mosaic.php">Minhas Câmeras</a></li>
         <li><a href="<?php echo BASEURL; ?>index.php">Logout</a></li>
         <li><a href="<?php echo BASEURL; ?>elements.html">Sobre</a></li>

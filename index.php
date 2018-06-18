@@ -3,6 +3,7 @@
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['name']) == true)) {
         unset($_SESSION['login']);
         unset($_SESSION['name']);
+        unset($_SESSION['id']);
     } else {
         session_destroy();
     }
