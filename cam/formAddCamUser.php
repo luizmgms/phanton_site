@@ -4,7 +4,8 @@
 	{
 		unset($_SESSION['login']);
 		unset($_SESSION['name']);
-		header('Location:index.php');
+		$url = BASEURL."index.php";
+		header("Location:url");
 		}
 	
 	$logado = $_SESSION['login'];
@@ -59,12 +60,15 @@
                                 </div>
                                 <div class="12u$">    
                                     <input type="hidden" name="idUser" id="isUser" value="<?php echo $idUser; ?>"/>
-                                </div>    
-                                <div class="6u 12u$(small)">
-                                    <input type="checkbox" id="publicNewCam" name="publicNewCam">
-                                    <label for="publicNewCam">Câmera Pública</label>
                                 </div>
-
+                                <p>Câmera Pública?</p>    
+                                <div class="4u 12u$(small)">
+                                    <input type="radio" id="demo-priority-low" name="publicNewCam" value="0"checked>
+                                    <label for="demo-priority-low">Não</label>
+                                </div>
+                                <div class="4u 12u$(small)">
+                                    <input type="radio" id="demo-priority-normal" name="publicNewCam" value="1">
+                                    <label for="demo-priority-normal">Sim</label>
                                 </div>
                                 <div class="12u$">
                                     <ul class="actions">

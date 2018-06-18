@@ -49,7 +49,7 @@
                     <!-- Form -->
                     <section>
                         
-                        <form method="post" action="<?php echo BASEURL; ?>users/CadUser.php">
+                        <form method="post" action="<?php echo BASEURL; ?>users/cadUser.php">
                             <div class="row uniform">
                                 <div class="12u$">
                                     <input type="text" name="nameNew" id="nameNew" value="" placeholder="Digite o Nome do Usuário" />

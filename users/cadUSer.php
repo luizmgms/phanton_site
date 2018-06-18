@@ -17,7 +17,6 @@
         if($x == false) {
             echo "<script> alert('Infelizmente já existe um Usuário com esse Login. Tente outro!'); history.back(); </script>";            
         } else {
-            echo "<script> alert(']você já pode efetuar o Login no sistema!'); </script>";
             $url = BASEURL."index.php";
             header("Location:$url");
         }

@@ -17,9 +17,9 @@
         if($rtn == false) {
             echo "<script> alert('Infelizmente não deu para Adicionar essa câmera! Tente novamente mais tarde!'); history.back(); </script>";            
         } else {
-            echo "<script> alert('Câmera adicionada com sucesso!'); </script>";
-            $url = BASEURL."users/cams_person.php";
-            header("Location:$url");
+            echo "<script> alert('Câmera adicionada com sucesso!');  window.history.go(-2); </script>";
+            //$url = BASEURL."users/cams_person.php";
+            //header("Location:$url");
         }
     }
     

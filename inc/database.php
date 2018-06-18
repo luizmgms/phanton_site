@@ -179,26 +179,28 @@
         return true;
     }
     /* Adiciona câmera ao baco de dados */
-    function add_cam($nameNewCam, $cityNewCam, $descNewCam, $urlNew, $mapNewCam , $publicNewCam, $idUser) {
+    function add_cam($nameNewCam = null, $cityNewCam = null, $descNewCam = null,
+        $urlNew = null, $mapNewCam = null, $publicNewCam = null, $idUser = null) {
         $db = open_database();
         try {
-            $sql = "INSERT INTO cams(nameCam, urlCam, descCam, publicCam, cityCam, mapCam)
-            VALUES ('$nameNewCam', '$urlNew', '$descNewCam', '$publicNewCam', '$cityNewCam', '$mapNewCam')";
-            if($db->query($sql) === true){
+            $sql = "INSERT INTO cams(nameCam, urlCam, descCam, publicCam, cityCam, mapCam) VALUES ('$nameNewCam', '$urlNew', '$descNewCam', $publicNewCam, '$cityNewCam', '$mapNewCam')";
+            $result = $db->query($sql);
+            if($result == true){
                 $last_id = $db->insert_id;
                 $sql = "INSERT INTO user_cam(idUser, idCam) VALUES ($idUser, $last_id)";
                 $db->query($sql);
                 close_database($db);
                 return true;
             } else {
-                close_database();
+                close_database($db);
                 return false;
             }
         } catch (Exception $e) {
             $_SESSION['message'] = $e->GetMessage();
             $_SESSION['type'] = 'danger';
         }
-
+        close_database($db);
+        return false;
     }
 
     /* Retorna uma lista com as cidades */
