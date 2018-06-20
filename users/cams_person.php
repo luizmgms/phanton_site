@@ -1,13 +1,13 @@
 <?php
 	session_start();
+	require_once 'functions.php';
 	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['name']) == true))
 	{
 		unset($_SESSION['login']);
 		unset($_SESSION['name']);
 		$url = BASEURL."index.php";
 		header("Location:url");
-	}
-	require_once 'functions.php';
+	}	
 	camsUser($_SESSION['id']);
 	$logado = $_SESSION['login'];
 	$nome = $_SESSION['name'];

@@ -5,7 +5,8 @@
 	{
 		unset($_SESSION['login']);
 		unset($_SESSION['name']);
-		header('Location:index.php');
+		$url = BASEURL."index.php";
+		header("Location:$url");
 	}
 	
 	$logado = $_SESSION['login'];

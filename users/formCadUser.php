@@ -1,10 +1,14 @@
 <?php
-    session_start();           
+    session_start();
+    require_once '../config.php';
+    require_once DBAPI;        
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['name']) == true)) {
         unset($_SESSION['login']);
         unset($_SESSION['name']);
     } else {
         session_destroy();
+        $url = BASEURL."index.php";
+		header("Location:url");
     }
 ?>
 
