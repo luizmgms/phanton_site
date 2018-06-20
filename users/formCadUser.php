@@ -80,7 +80,7 @@
                             </div>
                         </form>
 
-                        <b>Já é Cadastrado! Faça o Login <a href="index.php">Aqui!</a></b>
+                        <b>Já é Cadastrado! Faça o Login <a href="<?php echo BASEURL; ?>index.php">Aqui!</a></b>
                         <p><a href="resetsenha.php">Esqueceu a senha? :(</a></p>
                         
                     </section>

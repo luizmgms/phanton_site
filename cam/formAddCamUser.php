@@ -1,5 +1,7 @@
 <?php
-	session_start();
+    session_start();
+    require_once '../config.php';
+    require_once DBAPI;
 	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['name']) == true))
 	{
 		unset($_SESSION['login']);
@@ -12,9 +14,6 @@
     $nome = $_SESSION['name'];
     $idUser = $_SESSION['id'];
 ?>
-
-<?php require_once '../config.php'; ?>
-<?php require_once DBAPI; ?>
 
 <!DOCTYPE HTML>
 <!--

@@ -6,7 +6,7 @@
 		unset($_SESSION['login']);
 		unset($_SESSION['name']);
 		$url = BASEURL."index.php";
-		header("Location:url");
+		header("Location:$url");
 	}	
 	camsUser($_SESSION['id']);
 	$logado = $_SESSION['login'];
